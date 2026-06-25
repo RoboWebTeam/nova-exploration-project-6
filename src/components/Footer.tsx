@@ -55,13 +55,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-foreground transition-colors">
+                <a href="https://t.me/CCC_086" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
                   Телеграм
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  ВКонтакте
                 </a>
               </li>
             </ul>
