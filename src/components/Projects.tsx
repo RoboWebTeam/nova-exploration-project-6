@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react"
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect, useRef, useCallback } from "react"
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 
 const CDN = "https://cdn.poehali.dev/projects/7ca73786-ca35-4059-9a4f-ff58da38b306/files"
 
@@ -518,7 +518,97 @@ const projects = [
   },
 ]
 
-function ImageSlider({ images, title }: { images: string[]; title: string }) {
+type Project = typeof projects[number]
+
+function LightboxModal({ project, initialIndex, onClose }: { project: Project; initialIndex: number; onClose: () => void }) {
+  const [current, setCurrent] = useState(initialIndex)
+
+  const prev = useCallback(() => setCurrent((c) => (c === 0 ? project.images.length - 1 : c - 1)), [project.images.length])
+  const next = useCallback(() => setCurrent((c) => (c === project.images.length - 1 ? 0 : c + 1)), [project.images.length])
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose()
+      if (e.key === "ArrowLeft") prev()
+      if (e.key === "ArrowRight") next()
+    }
+    window.addEventListener("keydown", handler)
+    document.body.style.overflow = "hidden"
+    return () => {
+      window.removeEventListener("keydown", handler)
+      document.body.style.overflow = ""
+    }
+  }, [onClose, prev, next])
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/95 flex flex-col"
+      onClick={onClose}
+    >
+      <div className="flex items-center justify-between px-6 py-4 shrink-0" onClick={(e) => e.stopPropagation()}>
+        <div>
+          <h3 className="text-white font-medium text-lg">{project.title}</h3>
+          <p className="text-white/50 text-sm">{project.category} · {project.location} · {project.year}</p>
+        </div>
+        <button
+          onClick={onClose}
+          className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+
+      <div className="flex-1 relative flex items-center justify-center px-16 min-h-0" onClick={(e) => e.stopPropagation()}>
+        <img
+          key={current}
+          src={project.images[current]}
+          alt={`${project.title} — фото ${current + 1}`}
+          className="max-h-full max-w-full object-contain animate-in fade-in duration-300"
+        />
+        {project.images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
+      </div>
+
+      <div className="shrink-0 px-6 py-4" onClick={(e) => e.stopPropagation()}>
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {project.images.map((src, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`shrink-0 w-20 h-14 overflow-hidden rounded transition-all ${
+                i === current ? "ring-2 ring-white opacity-100" : "opacity-40 hover:opacity-70"
+              }`}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-x-6 gap-y-1 mt-3">
+          <span className="text-sm"><span className="text-white/50">Площадь:</span> <span className="text-white font-medium">{project.area}</span></span>
+          <span className="text-sm"><span className="text-white/50">Срок:</span> <span className="text-white font-medium">{project.duration}</span></span>
+          <span className="text-sm"><span className="text-white/50">Бюджет:</span> <span className="text-white font-medium">{project.budget}</span></span>
+        </div>
+        <p className="text-white/60 text-sm leading-relaxed mt-2">{project.description}</p>
+      </div>
+    </div>
+  )
+}
+
+function ImageSlider({ images, title, onOpenLightbox }: { images: string[]; title: string; onOpenLightbox: (index: number) => void }) {
   const [current, setCurrent] = useState(0)
 
   const prev = (e: React.MouseEvent) => {
@@ -531,7 +621,10 @@ function ImageSlider({ images, title }: { images: string[]; title: string }) {
   }
 
   return (
-    <div className="relative overflow-hidden aspect-[4/3] mb-6 group/slider">
+    <div
+      className="relative overflow-hidden aspect-[4/3] mb-6 group/slider cursor-zoom-in"
+      onClick={() => onOpenLightbox(current)}
+    >
       {images.map((src, i) => (
         <img
           key={i}
@@ -577,6 +670,7 @@ function ImageSlider({ images, title }: { images: string[]; title: string }) {
 export function Projects() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
   const [revealedImages, setRevealedImages] = useState<Set<number>>(new Set())
+  const [lightbox, setLightbox] = useState<{ project: Project; index: number } | null>(null)
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
@@ -602,6 +696,14 @@ export function Projects() {
   }, [])
 
   return (
+    <>
+    {lightbox && (
+      <LightboxModal
+        project={lightbox.project}
+        initialIndex={lightbox.index}
+        onClose={() => setLightbox(null)}
+      />
+    )}
     <section id="projects" className="py-32 md:py-29 bg-secondary/50">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -634,7 +736,11 @@ export function Projects() {
                     transition: "transform 1.5s cubic-bezier(0.76, 0, 0.24, 1)",
                   }}
                 />
-                <ImageSlider images={project.images} title={project.title} />
+                <ImageSlider
+                  images={project.images}
+                  title={project.title}
+                  onOpenLightbox={(index) => setLightbox({ project, index })}
+                />
               </div>
 
               <div className="flex items-start justify-between gap-4 mb-3">
@@ -659,6 +765,7 @@ export function Projects() {
         </div>
       </div>
     </section>
+    </>
   )
 }
 
