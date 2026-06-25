@@ -119,18 +119,12 @@ export function Hero() {
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0 bg-stone-900">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/hously-background.png"
-          className="w-full h-full object-cover object-center opacity-80"
-        >
-          <source src="https://videos.pexels.com/video-files/3760529/3760529-hd_1280_720_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/2098871/2098871-hd_1280_720_24fps.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/55" />
+        <img
+          src="https://cdn.poehali.dev/projects/7ca73786-ca35-4059-9a4f-ff58da38b306/files/1448f2d0-64c3-460c-a78c-797c0c518fb6.jpg"
+          alt="Премиум бункер"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div
