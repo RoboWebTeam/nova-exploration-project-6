@@ -147,6 +147,8 @@ export function Hero() {
             {"Защита"}
             <br />
             <span className="text-orange-200">{"для вашей семьи"}</span>
+            <br />
+            <span className="text-3xl md:text-4xl font-light tracking-normal text-white/80">{"Сохраните жизнь себе и своим близким!"}</span>
           </h1>
         </div>
       </div>
