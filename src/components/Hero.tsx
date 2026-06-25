@@ -14,7 +14,7 @@ export function Hero() {
         <div className="text-center">
           <p className="text-xl md:text-2xl tracking-[0.3em] uppercase text-center text-secondary mb-10 mt-36">{"Строительство бункеров под ключ"}</p>
 
-          <h1 className="text-8xl font-medium text-balance text-center text-white mb-0 tracking-tight leading-[0.9] lg:text-[10rem]">
+          <h1 className="text-6xl font-medium text-balance text-center text-white mb-0 tracking-tight leading-[0.9] lg:text-8xl">
             {"Защита"}
             <br />
             <span className="text-orange-200">{"для вашей семьи"}</span>
