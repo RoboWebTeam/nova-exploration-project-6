@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 
 const reviews = [
   {
@@ -73,6 +73,8 @@ export function Reviews() {
   const [current, setCurrent] = useState(0)
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true) }, { threshold: 0.15 })
@@ -80,8 +82,23 @@ export function Reviews() {
     return () => observer.disconnect()
   }, [])
 
-  const prev = () => setCurrent((c) => (c === 0 ? reviews.length - 1 : c - 1))
-  const next = () => setCurrent((c) => (c === reviews.length - 1 ? 0 : c + 1))
+  const prev = useCallback(() => setCurrent((c) => (c === 0 ? reviews.length - 1 : c - 1)), [])
+  const next = useCallback(() => setCurrent((c) => (c === reviews.length - 1 ? 0 : c + 1)), [])
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    const dy = e.changedTouches[0].clientY - touchStartY.current
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) next(); else prev()
+    }
+    touchStartX.current = null
+    touchStartY.current = null
+  }
 
   const visible3 = [
     reviews[(current) % reviews.length],
@@ -115,7 +132,11 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {visible3.map((review, i) => (
             <div
               key={`${review.id}-${current}`}
