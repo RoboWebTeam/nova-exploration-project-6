@@ -15,9 +15,9 @@ import { WhyUs } from "../components/WhyUs"
 export default function Index() {
   return (
     <main className="min-h-screen">
-      <PromoBanner />
       <Header />
       <Hero />
+      <PromoBanner />
       <Philosophy />
       <Stats />
       <WhyUs />
