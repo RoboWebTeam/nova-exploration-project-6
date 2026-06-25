@@ -11,6 +11,10 @@ import { PromoBanner } from "../components/PromoBanner"
 import { Promos } from "../components/Promos"
 import { PromoPopup } from "../components/PromoPopup"
 import { WhyUs } from "../components/WhyUs"
+import { Calculator } from "../components/Calculator"
+import { Reviews } from "../components/Reviews"
+import { Process } from "../components/Process"
+import { FloatChat } from "../components/FloatChat"
 
 export default function Index() {
   return (
@@ -21,13 +25,17 @@ export default function Index() {
       <Philosophy />
       <Stats />
       <WhyUs />
+      <Process />
       <Promos />
+      <Calculator />
       <Projects />
+      <Reviews />
       <Expertise />
       <FAQ />
       <CallToAction />
       <Footer />
       <PromoPopup />
+      <FloatChat />
     </main>
   )
 }
