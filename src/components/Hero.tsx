@@ -127,6 +127,7 @@ export function Hero() {
           poster="/images/hously-background.png"
           className="w-full h-full object-cover object-center opacity-80"
         >
+          <source src="https://videos.pexels.com/video-files/3760529/3760529-hd_1280_720_25fps.mp4" type="video/mp4" />
           <source src="https://videos.pexels.com/video-files/2098871/2098871-hd_1280_720_24fps.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/55" />
