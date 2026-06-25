@@ -57,10 +57,10 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="tel:+79331777086"
+            href="tel:+79331770086"
             className="text-white text-sm font-bold tracking-wide hover:text-orange-400 transition-colors duration-300"
           >
-            +7 (933) 177-70-86
+            8 (933) 177-00-86
           </a>
           <a
             href="#contact"
