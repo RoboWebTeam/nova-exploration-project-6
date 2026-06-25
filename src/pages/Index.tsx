@@ -15,6 +15,8 @@ import { Calculator } from "../components/Calculator"
 import { Reviews } from "../components/Reviews"
 import { Process } from "../components/Process"
 import { FloatChat } from "../components/FloatChat"
+import { Packages } from "../components/Packages"
+import { Certificates } from "../components/Certificates"
 
 export default function Index() {
   return (
@@ -26,10 +28,12 @@ export default function Index() {
       <Stats />
       <WhyUs />
       <Process />
+      <Packages />
       <Promos />
       <Calculator />
       <Projects />
       <Reviews />
+      <Certificates />
       <Expertise />
       <FAQ />
       <CallToAction />
