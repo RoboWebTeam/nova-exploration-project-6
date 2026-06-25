@@ -58,7 +58,7 @@ export function Header() {
         <div className="hidden md:flex items-center gap-4">
           <a
             href="tel:+79331777086"
-            className="text-white text-sm tracking-wide hover:text-orange-400 transition-colors duration-300"
+            className="text-white text-sm font-bold tracking-wide hover:text-orange-400 transition-colors duration-300"
           >
             +7 (933) 177-70-86
           </a>
