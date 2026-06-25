@@ -118,14 +118,18 @@ export function Hero() {
 
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <iframe
-          src="https://www.youtube.com/embed/QCFgFIl0UA8?autoplay=1&mute=1&loop=1&playlist=QCFgFIl0UA8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-          allow="autoplay; encrypted-media"
-          className="absolute w-[300%] h-[300%] -top-[100%] -left-[100%] pointer-events-none"
-          style={{ border: "none" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 z-0 bg-stone-900">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hously-background.png"
+          className="w-full h-full object-cover object-center opacity-80"
+        >
+          <source src="https://videos.pexels.com/video-files/2098871/2098871-hd_1280_720_24fps.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/55" />
       </div>
 
       <div
