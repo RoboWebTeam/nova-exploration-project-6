@@ -36,7 +36,7 @@ export function Header() {
           <img src="/images/hously-logo.svg" alt="Пространство" width={120} height={32} className="w-auto h-6" />
         </a>
 
-        <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
+        <ul className="hidden md:flex items-center gap-10 text-base tracking-wide">
           {[
             { label: "Главная", href: "#hero" },
             { label: "О нас", href: "#about" },
