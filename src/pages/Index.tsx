@@ -7,19 +7,27 @@ import { Expertise } from "../components/Expertise"
 import { FAQ } from "../components/FAQ"
 import { CallToAction } from "../components/CallToAction"
 import { Footer } from "../components/Footer"
+import { PromoBanner } from "../components/PromoBanner"
+import { Promos } from "../components/Promos"
+import { PromoPopup } from "../components/PromoPopup"
+import { WhyUs } from "../components/WhyUs"
 
 export default function Index() {
   return (
     <main className="min-h-screen">
+      <PromoBanner />
       <Header />
       <Hero />
       <Philosophy />
       <Stats />
+      <WhyUs />
+      <Promos />
       <Projects />
       <Expertise />
       <FAQ />
       <CallToAction />
       <Footer />
+      <PromoPopup />
     </main>
   )
 }
