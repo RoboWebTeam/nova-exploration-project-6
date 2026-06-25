@@ -119,15 +119,12 @@ export function Hero() {
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover object-center"
-        >
-          <source src="https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-        </video>
+        <iframe
+          src="https://www.youtube.com/embed/QCFgFIl0UA8?autoplay=1&mute=1&loop=1&playlist=QCFgFIl0UA8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          allow="autoplay; encrypted-media"
+          className="absolute w-[300%] h-[300%] -top-[100%] -left-[100%] pointer-events-none"
+          style={{ border: "none" }}
+        />
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
