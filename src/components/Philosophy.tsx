@@ -48,13 +48,13 @@ export function Philosophy() {
   }, [])
 
   return (
-    <section id="about" className="py-32 md:py-29">
+    <section id="about" className="py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-24">
           {/* Left column - Title and image */}
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наш подход</p>
-            <h2 className="text-6xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
+            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4 md:mb-6">Наш подход</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-7xl xl:text-8xl">
               Безопасность
               <br />
               <HighlightedText>превыше всего</HighlightedText>
@@ -70,7 +70,7 @@ export function Philosophy() {
           </div>
 
           {/* Right column - Description and Philosophy items */}
-          <div className="space-y-6 lg:pt-48">
+          <div className="space-y-6 lg:pt-32 xl:pt-48">
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
               Бункер — это не просто бетонная коробка. Это инженерная система жизнеобеспечения, которой вы доверяете самое ценное. Мы строим убежища, на которые можно положиться в любой ситуации.
             </p>

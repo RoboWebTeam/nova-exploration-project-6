@@ -54,11 +54,11 @@ export function Expertise() {
   }, [])
 
   return (
-    <section id="services" ref={sectionRef} className="py-32 md:py-29">
+    <section id="services" ref={sectionRef} className="py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="max-w-3xl mb-20">
-          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши услуги</p>
-          <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
+        <div className="max-w-3xl mb-10 md:mb-20">
+          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4 md:mb-6">Наши услуги</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.15] tracking-tight mb-4 md:mb-6 text-balance lg:text-7xl xl:text-8xl">
             <HighlightedText>Полный цикл</HighlightedText>
             <br />
             под ключ
@@ -68,7 +68,7 @@ export function Expertise() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10 md:gap-x-12 md:gap-y-16">
           {expertiseAreas.map((area, index) => {
             const Icon = area.icon
             return (

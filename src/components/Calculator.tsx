@@ -71,19 +71,19 @@ export function Calculator() {
   }
 
   return (
-    <section id="calculator" className="py-24 bg-primary text-primary-foreground">
+    <section id="calculator" className="py-16 md:py-24 bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="mb-12">
-          <p className="text-primary-foreground/50 text-sm tracking-[0.3em] uppercase mb-4">Онлайн-расчёт</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Калькулятор стоимости</h2>
-          <p className="text-primary-foreground/60 mt-3 max-w-xl">Получите предварительную оценку стоимости вашего бункера за 1 минуту</p>
+        <div className="mb-8 md:mb-12">
+          <p className="text-primary-foreground/50 text-sm tracking-[0.3em] uppercase mb-3 md:mb-4">Онлайн-расчёт</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Калькулятор стоимости</h2>
+          <p className="text-primary-foreground/60 mt-3 max-w-xl text-sm md:text-base">Получите предварительную оценку стоимости вашего бункера за 1 минуту</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-4">Площадь объекта</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-3 md:mb-4">Площадь объекта</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
                 {sizes.map((s) => (
                   <button
                     key={s.id}
@@ -102,7 +102,7 @@ export function Calculator() {
             </div>
 
             <div>
-              <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-4">Уровень комплектации</p>
+              <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-3 md:mb-4">Уровень комплектации</p>
               <div className="grid gap-3">
                 {levels.map((l) => (
                   <button
@@ -129,8 +129,8 @@ export function Calculator() {
             </div>
 
             <div>
-              <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-4">Дополнительные опции</p>
-              <div className="grid grid-cols-2 gap-3">
+              <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-3 md:mb-4">Дополнительные опции</p>
+              <div className="grid grid-cols-2 gap-2 md:gap-3">
                 {options.map((o) => (
                   <button
                     key={o.id}
@@ -150,10 +150,10 @@ export function Calculator() {
           </div>
 
           <div className="lg:sticky lg:top-28 h-fit">
-            <div className="rounded-2xl bg-white/10 border border-white/20 p-8">
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 sm:p-6 md:p-8">
               <p className="text-primary-foreground/50 text-sm uppercase tracking-widest mb-2">Предварительная стоимость</p>
               <div className="mb-6">
-                <p className="text-4xl md:text-5xl font-medium tracking-tight">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight">
                   от {fmt(totalFrom)}
                 </p>
                 <p className="text-primary-foreground/50 text-sm mt-1">до {fmt(totalTo)}</p>

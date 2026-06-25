@@ -80,7 +80,7 @@ export function Certificates() {
           <p className="text-muted-foreground mt-3 max-w-xl">Работаем официально. Все документы можно проверить в государственных реестрах</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10 md:mb-16">
           {certs.map((cert, i) => (
             <div
               key={cert.title}
@@ -108,10 +108,10 @@ export function Certificates() {
         </div>
 
         <div
-          className="rounded-2xl bg-primary text-primary-foreground p-8 md:p-10 transition-all duration-700 delay-500"
+          className="rounded-2xl bg-primary text-primary-foreground p-6 md:p-8 lg:p-10 transition-all duration-700 delay-500"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)" }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-3xl md:text-4xl font-medium">{s.value}</p>

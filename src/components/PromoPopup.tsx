@@ -50,13 +50,13 @@ export function PromoPopup() {
           <X className="w-4 h-4" />
         </button>
 
-        <div className="bg-primary text-primary-foreground px-8 py-10">
+        <div className="bg-primary text-primary-foreground px-5 py-7 sm:px-8 sm:py-10">
           <p className="text-xs uppercase tracking-widest opacity-60 mb-2">Специальное предложение</p>
-          <h2 className="text-3xl font-medium leading-tight mb-2">Скидка 10%<br/>на первый заказ</h2>
+          <h2 className="text-2xl sm:text-3xl font-medium leading-tight mb-2">Скидка 10%<br/>на первый заказ</h2>
           <p className="opacity-70 text-sm">Оставьте номер телефона — и мы зафиксируем вашу скидку прямо сейчас.</p>
         </div>
 
-        <div className="px-8 py-6">
+        <div className="px-5 py-5 sm:px-8 sm:py-6">
           {status === "success" ? (
             <div className="text-center py-4">
               <p className="text-2xl mb-2">✅</p>

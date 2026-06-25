@@ -57,10 +57,10 @@ export function Process() {
   }, [])
 
   return (
-    <section id="process" ref={ref} className="py-24 bg-secondary/40">
+    <section id="process" ref={ref} className="py-16 md:py-24 bg-secondary/40">
       <div className="container mx-auto px-6 md:px-12">
         <div
-          className="mb-16 transition-all duration-700"
+          className="mb-10 md:mb-16 transition-all duration-700"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)" }}
         >
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4">Как мы работаем</p>
@@ -126,7 +126,7 @@ export function Process() {
         </div>
 
         <div
-          className="mt-12 rounded-2xl bg-primary text-primary-foreground p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 transition-all duration-700 delay-500"
+          className="mt-8 md:mt-12 rounded-2xl bg-primary text-primary-foreground p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 md:gap-6 transition-all duration-700 delay-500"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)" }}
         >
           <div>

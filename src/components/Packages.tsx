@@ -85,7 +85,7 @@ export function Packages() {
           <p className="text-muted-foreground mt-3 max-w-xl">Выберите подходящий уровень — точную стоимость рассчитаем после выезда инженера</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {packages.map((pkg, i) => (
             <div
               key={pkg.id}
@@ -97,7 +97,7 @@ export function Packages() {
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible
-                  ? pkg.highlight ? "scale(1.02)" : "none"
+                  ? pkg.highlight ? "scale(1.01) translateZ(0)" : "none"
                   : "translateY(32px)",
                 transitionDelay: `${i * 100}ms`,
               }}
@@ -110,7 +110,7 @@ export function Packages() {
                 </div>
               )}
 
-              <div className="p-8 pb-6">
+              <div className="p-5 sm:p-8 pb-5 sm:pb-6">
                 <p className={`text-xs uppercase tracking-widest font-medium mb-3 ${pkg.highlight ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
                   {pkg.name}
                 </p>
@@ -125,7 +125,7 @@ export function Packages() {
 
               <div className={`mx-8 border-t ${pkg.highlight ? "border-white/20" : "border-border"}`} />
 
-              <div className="p-8 pt-6 flex-1">
+              <div className="p-5 sm:p-8 pt-4 sm:pt-6 flex-1">
                 <ul className="space-y-3">
                   {pkg.features.map((f) => (
                     <li key={f.text} className="flex items-start gap-3 text-sm">
@@ -140,7 +140,7 @@ export function Packages() {
                 </ul>
               </div>
 
-              <div className="p-8 pt-0">
+              <div className="p-5 sm:p-8 pt-0">
                 <a
                   href="#contact"
                   className={`block text-center py-3 px-6 rounded-xl text-sm font-semibold transition-all ${

@@ -32,8 +32,8 @@ function useCountUp(target: number, duration: number = 1500, isVisible: boolean)
 function StatItem({ value, suffix, label, isVisible }: { value: number; suffix: string; label: string; isVisible: boolean }) {
   const count = useCountUp(value, 1200, isVisible)
   return (
-    <div className="text-center border-b border-border pb-10 md:border-b-0 md:pb-0 md:border-r md:last:border-r-0 last:border-b-0 px-6">
-      <p className="text-5xl lg:text-6xl font-medium tracking-tight mb-2">
+    <div className="text-center border-b border-border pb-8 md:border-b-0 md:pb-0 md:border-r md:last:border-r-0 last:border-b-0 px-4 md:px-6">
+      <p className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mb-2">
         {count}<span className="text-orange-400">{suffix}</span>
       </p>
       <p className="text-muted-foreground text-sm uppercase tracking-[0.2em]">{label}</p>
@@ -57,7 +57,7 @@ export function Stats() {
   return (
     <section ref={ref} className="py-20 border-y border-border">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
           {stats.map((s) => (
             <StatItem key={s.label} {...s} isVisible={isVisible} />
           ))}

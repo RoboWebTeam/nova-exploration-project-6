@@ -90,19 +90,19 @@ export function Reviews() {
   ]
 
   return (
-    <section id="reviews" ref={ref} className="py-24 bg-background overflow-hidden">
+    <section id="reviews" ref={ref} className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-16">
           <div
             className="transition-all duration-700"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)" }}
           >
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4">Клиенты о нас</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Отзывы</h2>
+            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-3 md:mb-4">Клиенты о нас</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Отзывы</h2>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-right mr-4">
-              <p className="text-4xl font-medium">5.0</p>
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="text-right mr-2 md:mr-4">
+              <p className="text-3xl md:text-4xl font-medium">5.0</p>
               <Stars count={5} />
               <p className="text-muted-foreground text-xs mt-1">120+ проектов</p>
             </div>
@@ -115,11 +115,11 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {visible3.map((review, i) => (
             <div
               key={`${review.id}-${current}`}
-              className="rounded-2xl border border-border p-8 flex flex-col gap-5 bg-background transition-all duration-500"
+              className={`rounded-2xl border border-border p-5 md:p-8 flex flex-col gap-4 md:gap-5 bg-background transition-all duration-500 ${i >= 1 ? "hidden sm:flex" : ""} ${i >= 2 ? "sm:hidden md:flex" : ""}`}
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "none" : "translateY(32px)",
