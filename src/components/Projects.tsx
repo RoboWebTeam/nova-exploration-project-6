@@ -309,7 +309,7 @@ const projects = [
     budget: "от 34,3 млн ₽",
   },
   {
-    id: 16,
+    id: 15,
     title: "Объект «Рассвет»",
     category: "Семейный объект · 5 чел.",
     location: "Калужская область",
@@ -857,13 +857,13 @@ function ImageSlider({ images, title, onOpenLightbox }: { images: string[]; titl
         <>
           <button
             onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 transition-opacity"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 transition-opacity"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -925,12 +925,12 @@ export function Projects() {
     {requestProject && (
       <RequestPopup project={requestProject} onClose={() => setRequestProject(null)} />
     )}
-    <section id="projects" className="py-32 md:py-29 bg-secondary/50">
+    <section id="projects" className="py-16 md:py-24 lg:py-32 bg-secondary/50">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-16">
           <div>
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Реализованные объекты</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Наши бункеры</h2>
+            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-3 md:mb-6">Реализованные объекты</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Наши бункеры</h2>
           </div>
           <a
             href="#"
