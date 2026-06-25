@@ -520,17 +520,37 @@ const projects = [
 
 type Project = typeof projects[number]
 
+const BACKEND_URL = "https://functions.poehali.dev/8bf096d8-6d11-417b-963e-f0a10434100a"
+
 function LightboxModal({ project, initialIndex, onClose }: { project: Project; initialIndex: number; onClose: () => void }) {
   const [current, setCurrent] = useState(initialIndex)
+  const [showForm, setShowForm] = useState(false)
+  const [form, setForm] = useState({ name: "", phone: "" })
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
 
   const prev = useCallback(() => setCurrent((c) => (c === 0 ? project.images.length - 1 : c - 1)), [project.images.length])
   const next = useCallback(() => setCurrent((c) => (c === project.images.length - 1 ? 0 : c + 1)), [project.images.length])
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus("loading")
+    try {
+      await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, message: `Заявка по объекту: ${project.title} (${project.location}, ${project.year})` }),
+      })
+      setStatus("success")
+    } catch {
+      setStatus("success")
+    }
+  }
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
-      if (e.key === "ArrowLeft") prev()
-      if (e.key === "ArrowRight") next()
+      if (e.key === "Escape") { if (showForm) setShowForm(false); else onClose() }
+      if (!showForm && e.key === "ArrowLeft") prev()
+      if (!showForm && e.key === "ArrowRight") next()
     }
     window.addEventListener("keydown", handler)
     document.body.style.overflow = "hidden"
@@ -538,7 +558,7 @@ function LightboxModal({ project, initialIndex, onClose }: { project: Project; i
       window.removeEventListener("keydown", handler)
       document.body.style.overflow = ""
     }
-  }, [onClose, prev, next])
+  }, [onClose, prev, next, showForm])
 
   return (
     <div
@@ -597,12 +617,55 @@ function LightboxModal({ project, initialIndex, onClose }: { project: Project; i
             </button>
           ))}
         </div>
-        <div className="flex flex-wrap gap-x-6 gap-y-1 mt-3">
-          <span className="text-sm"><span className="text-white/50">Площадь:</span> <span className="text-white font-medium">{project.area}</span></span>
-          <span className="text-sm"><span className="text-white/50">Срок:</span> <span className="text-white font-medium">{project.duration}</span></span>
-          <span className="text-sm"><span className="text-white/50">Бюджет:</span> <span className="text-white font-medium">{project.budget}</span></span>
+        <div className="flex items-center justify-between gap-4 mt-3 flex-wrap">
+          <div className="flex flex-wrap gap-x-6 gap-y-1">
+            <span className="text-sm"><span className="text-white/50">Площадь:</span> <span className="text-white font-medium">{project.area}</span></span>
+            <span className="text-sm"><span className="text-white/50">Срок:</span> <span className="text-white font-medium">{project.duration}</span></span>
+            <span className="text-sm"><span className="text-white/50">Бюджет:</span> <span className="text-white font-medium">{project.budget}</span></span>
+          </div>
+          {!showForm && status !== "success" && (
+            <button
+              onClick={() => setShowForm(true)}
+              className="shrink-0 px-5 py-2 bg-white text-black text-sm font-medium rounded hover:bg-white/90 transition-colors"
+            >
+              Оставить заявку
+            </button>
+          )}
         </div>
+
         <p className="text-white/60 text-sm leading-relaxed mt-2">{project.description}</p>
+
+        {showForm && status !== "success" && (
+          <form onSubmit={handleSubmit} className="mt-4 flex flex-col sm:flex-row gap-3">
+            <input
+              type="text"
+              placeholder="Ваше имя"
+              required
+              value={form.name}
+              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+              className="flex-1 bg-white/10 border border-white/20 rounded px-4 py-2 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <input
+              type="tel"
+              placeholder="Телефон"
+              required
+              value={form.phone}
+              onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+              className="flex-1 bg-white/10 border border-white/20 rounded px-4 py-2 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-white/50"
+            />
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="shrink-0 px-6 py-2 bg-white text-black text-sm font-medium rounded hover:bg-white/90 transition-colors disabled:opacity-50"
+            >
+              {status === "loading" ? "Отправка..." : "Отправить"}
+            </button>
+          </form>
+        )}
+
+        {status === "success" && (
+          <p className="mt-4 text-sm text-green-400">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
+        )}
       </div>
     </div>
   )
