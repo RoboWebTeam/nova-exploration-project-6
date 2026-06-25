@@ -681,9 +681,26 @@ function LightboxModal({ project, initialIndex, onClose }: { project: Project; i
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: "", phone: "" })
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
+  const lbTouchStartX = useRef<number | null>(null)
+  const lbTouchStartY = useRef<number | null>(null)
 
   const prev = useCallback(() => setCurrent((c) => (c === 0 ? project.images.length - 1 : c - 1)), [project.images.length])
   const next = useCallback(() => setCurrent((c) => (c === project.images.length - 1 ? 0 : c + 1)), [project.images.length])
+
+  const handleLbTouchStart = (e: React.TouchEvent) => {
+    lbTouchStartX.current = e.touches[0].clientX
+    lbTouchStartY.current = e.touches[0].clientY
+  }
+  const handleLbTouchEnd = (e: React.TouchEvent) => {
+    if (lbTouchStartX.current === null || lbTouchStartY.current === null) return
+    const dx = e.changedTouches[0].clientX - lbTouchStartX.current
+    const dy = e.changedTouches[0].clientY - lbTouchStartY.current
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) next(); else prev()
+    }
+    lbTouchStartX.current = null
+    lbTouchStartY.current = null
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -732,7 +749,7 @@ function LightboxModal({ project, initialIndex, onClose }: { project: Project; i
         </button>
       </div>
 
-      <div className="flex-1 relative flex items-center justify-center px-16 min-h-0" onClick={(e) => e.stopPropagation()}>
+      <div className="flex-1 relative flex items-center justify-center px-12 md:px-16 min-h-0" onClick={(e) => e.stopPropagation()} onTouchStart={handleLbTouchStart} onTouchEnd={handleLbTouchEnd}>
         <img
           key={current}
           src={project.images[current]}
@@ -827,6 +844,8 @@ function LightboxModal({ project, initialIndex, onClose }: { project: Project; i
 
 function ImageSlider({ images, title, onOpenLightbox }: { images: string[]; title: string; onOpenLightbox: (index: number) => void }) {
   const [current, setCurrent] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
 
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -837,10 +856,30 @@ function ImageSlider({ images, title, onOpenLightbox }: { images: string[]; titl
     setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
   }
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    const dy = e.changedTouches[0].clientY - touchStartY.current
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      e.stopPropagation()
+      if (dx < 0) setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+      else setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))
+    }
+    touchStartX.current = null
+    touchStartY.current = null
+  }
+
   return (
     <div
       className="relative overflow-hidden aspect-[4/3] mb-6 group/slider cursor-zoom-in"
       onClick={() => onOpenLightbox(current)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {images.map((src, i) => (
         <img
