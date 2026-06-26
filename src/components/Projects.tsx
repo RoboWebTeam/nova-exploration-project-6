@@ -62,8 +62,8 @@ export function Projects() {
 
           <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-10 md:mb-16">
             <span className="text-amber-500 text-lg shrink-0">🔒</span>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              <span className="font-semibold">Примечание:</span> все объекты являются строго конфиденциальной информацией. Точные адреса, координаты и технические характеристики реализованных бункеров публично не предоставляются — мы не имеем на это права по условиям договоров с заказчиками.
+            <p className="text-sm text-amber-800 leading-relaxed font-semibold">
+              Примечание: все объекты являются строго конфиденциальной информацией. Точные адреса, координаты и технические характеристики реализованных бункеров публично не предоставляются — мы не имеем на это права по условиям договоров с заказчиками.
             </p>
           </div>
 
