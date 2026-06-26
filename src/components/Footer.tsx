@@ -6,7 +6,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-2">
             <a href="/" className="inline-block mb-4 md:mb-6">
-              <img src="/images/hously-logo.svg" alt="Пространство" width={120} height={32} className="w-auto h-6" />
+              <span className="font-bold tracking-widest uppercase text-lg leading-none">Юнит<span className="text-orange-400">-1</span></span>
             </a>
             <p className="text-muted-foreground leading-relaxed max-w-sm">
               Строим бункеры под ключ. Надёжные автономные укрытия для защиты вашей семьи в любой ситуации.
