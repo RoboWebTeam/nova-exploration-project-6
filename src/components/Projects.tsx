@@ -49,7 +49,6 @@ export function Projects() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-16">
             <div>
-              <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-3 md:mb-6">Реализованные объекты</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Примеры бункеров</h2>
             </div>
             <a
