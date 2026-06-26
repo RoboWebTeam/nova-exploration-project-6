@@ -55,7 +55,7 @@ export function Projects() {
               href="#"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
             >
-              Смотреть все объекты
+              Смотреть все примеры бункеров
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
