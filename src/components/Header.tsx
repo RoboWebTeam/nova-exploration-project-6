@@ -129,6 +129,22 @@ export function Header() {
             ))}
           </ul>
 
+          <div className="flex flex-col gap-3 mb-6">
+            <a
+              href="tel:+79331770086"
+              className="text-white/70 text-base font-medium hover:text-orange-400 transition-colors"
+              onClick={closeMobileMenu}
+            >
+              8 (933) 177-00-86
+            </a>
+            <a
+              href="tel:+74955960800"
+              className="text-white/70 text-base font-medium hover:text-orange-400 transition-colors"
+              onClick={closeMobileMenu}
+            >
+              8 (495) 596-08-00
+            </a>
+          </div>
           <a
             href="#contact"
             className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300 mb-4"

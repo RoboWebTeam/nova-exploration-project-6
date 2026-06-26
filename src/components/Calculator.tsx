@@ -130,7 +130,7 @@ export function Calculator() {
 
             <div>
               <p className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-3 md:mb-4">Дополнительные опции</p>
-              <div className="grid grid-cols-2 gap-2 md:gap-3">
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-2 md:gap-3">
                 {options.map((o) => (
                   <button
                     key={o.id}

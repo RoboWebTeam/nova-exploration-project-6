@@ -79,25 +79,25 @@ export function CallToAction() {
               {status === "error" && (
                 <p className="text-red-400 text-sm">Ошибка отправки. Попробуйте ещё раз или напишите нам напрямую.</p>
               )}
-              <div className="flex flex-col sm:flex-row gap-4 mt-2">
+              <div className="flex flex-col gap-3 mt-2">
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="inline-flex items-center justify-center gap-3 bg-primary-foreground text-foreground px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/90 transition-colors duration-300 group disabled:opacity-60"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-primary-foreground text-foreground px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/90 transition-colors duration-300 group disabled:opacity-60"
                 >
                   {status === "loading" ? "Отправляем..." : "Оставить заявку"}
                   {status !== "loading" && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
                 </button>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
                     href="tel:+79331770086"
-                    className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300"
+                    className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-4 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300 whitespace-nowrap"
                   >
                     8 (933) 177-00-86
                   </a>
                   <a
                     href="tel:+74955960800"
-                    className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300"
+                    className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-4 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300 whitespace-nowrap"
                   >
                     8 (495) 596-08-00
                   </a>

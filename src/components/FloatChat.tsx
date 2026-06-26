@@ -14,7 +14,7 @@ export function FloatChat() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="bg-background border border-border rounded-2xl shadow-2xl p-5 w-64 animate-in fade-in slide-in-from-bottom-4 duration-200">
+        <div className="bg-background border border-border rounded-2xl shadow-2xl p-5 w-[calc(100vw-3rem)] max-w-[16rem] animate-in fade-in slide-in-from-bottom-4 duration-200">
           <p className="font-medium text-sm mb-1">Напишите нам</p>
           <p className="text-muted-foreground text-xs mb-4">Ответим в течение нескольких минут</p>
           <div className="flex flex-col gap-2">
