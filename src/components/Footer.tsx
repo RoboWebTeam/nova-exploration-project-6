@@ -63,8 +63,20 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Реквизиты */}
+        <div className="pt-8 border-t border-border mb-6">
+          <h4 className="text-sm font-medium mb-3">Реквизиты</h4>
+          <ul className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-1.5 text-xs text-muted-foreground">
+            <li><span className="text-foreground/60">Компания:</span> ООО «Юнит-1»</li>
+            <li><span className="text-foreground/60">ИНН:</span> 5032263756</li>
+            <li><span className="text-foreground/60">КПП:</span> 503201001</li>
+            <li><span className="text-foreground/60">ОГРН:</span> 1135032002181</li>
+            <li className="sm:w-full"><span className="text-foreground/60">Адрес:</span> 143005, Московская область, Одинцовский район, г. Одинцово, Можайское шоссе, д. 112А, пом/ком 29/1</li>
+          </ul>
+        </div>
+
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
+        <div className="pt-6 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© 2020-2026 Бункер Про. Все права защищены.</p>
           <div className="flex flex-wrap gap-4 md:gap-6">
             <a href="#" className="hover:text-foreground transition-colors">
