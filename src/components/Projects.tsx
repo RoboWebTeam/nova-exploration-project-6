@@ -47,7 +47,7 @@ export function Projects() {
       )}
       <section id="projects" className="py-16 md:py-24 lg:py-32 bg-secondary/50">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Примеры бункеров</h2>
             </div>
@@ -58,6 +58,13 @@ export function Projects() {
               Смотреть все примеры бункеров
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
+          </div>
+
+          <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-10 md:mb-16">
+            <span className="text-amber-500 text-lg shrink-0">🔒</span>
+            <p className="text-sm text-amber-800 leading-relaxed">
+              <span className="font-semibold">Примечание:</span> все объекты являются строго конфиденциальной информацией. Точные адреса, координаты и технические характеристики реализованных бункеров публично не предоставляются — мы не имеем на это права по условиям договоров с заказчиками.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
