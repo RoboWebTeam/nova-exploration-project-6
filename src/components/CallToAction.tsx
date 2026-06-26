@@ -88,12 +88,20 @@ export function CallToAction() {
                   {status === "loading" ? "Отправляем..." : "Оставить заявку"}
                   {status !== "loading" && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
                 </button>
-                <a
-                  href="tel:+79331770086"
-                  className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300"
-                >
-                  Заказать звонок
-                </a>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="tel:+79331770086"
+                    className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300"
+                  >
+                    8 (933) 177-00-86
+                  </a>
+                  <a
+                    href="tel:+74955960800"
+                    className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-8 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300"
+                  >
+                    8 (495) 596-08-00
+                  </a>
+                </div>
               </div>
             </form>
           )}

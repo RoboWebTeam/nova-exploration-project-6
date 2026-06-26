@@ -55,6 +55,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="tel:+74955960800" className="hover:text-foreground transition-colors">
+                  8 (495) 596-08-00
+                </a>
+              </li>
+              <li>
                 <a href="https://t.me/CCC_086" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
                   Телеграм
                 </a>
