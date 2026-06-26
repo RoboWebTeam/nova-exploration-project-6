@@ -109,7 +109,7 @@ export function Reviews() {
   return (
     <section id="reviews" ref={ref} className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 md:mb-16">
           <div
             className="transition-all duration-700"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)" }}
@@ -117,16 +117,16 @@ export function Reviews() {
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-3 md:mb-4">Клиенты о нас</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">Отзывы</h2>
           </div>
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="text-right mr-2 md:mr-4">
-              <p className="text-3xl md:text-4xl font-medium">5.0</p>
+          <div className="flex items-center gap-3 md:gap-4 self-start sm:self-auto">
+            <div className="text-right mr-1 md:mr-4">
+              <p className="text-2xl md:text-4xl font-medium">5.0</p>
               <Stars count={5} />
               <p className="text-muted-foreground text-xs mt-1">120+ проектов</p>
             </div>
-            <button onClick={prev} className="w-11 h-11 rounded-full border border-border hover:bg-secondary transition-colors flex items-center justify-center">
+            <button onClick={prev} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-border hover:bg-secondary transition-colors flex items-center justify-center shrink-0">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="15,18 9,12 15,6" /></svg>
             </button>
-            <button onClick={next} className="w-11 h-11 rounded-full border border-border hover:bg-secondary transition-colors flex items-center justify-center">
+            <button onClick={next} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-border hover:bg-secondary transition-colors flex items-center justify-center shrink-0">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="9,18 15,12 9,6" /></svg>
             </button>
           </div>

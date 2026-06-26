@@ -54,7 +54,7 @@ export function Philosophy() {
           {/* Left column - Title and image */}
           <div className="lg:sticky lg:top-32 lg:self-start">
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4 md:mb-6">Наш подход</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-7xl xl:text-8xl">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-medium leading-[1.2] tracking-tight mb-6 text-balance lg:text-6xl xl:text-7xl">
               Безопасность
               <br />
               <HighlightedText>превыше всего</HighlightedText>
@@ -71,7 +71,7 @@ export function Philosophy() {
 
           {/* Right column - Description and Philosophy items */}
           <div className="space-y-6 lg:pt-32 xl:pt-48">
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-md mb-8 md:mb-12">
               Бункер — это не просто бетонная коробка. Это инженерная система жизнеобеспечения, которой вы доверяете самое ценное. Мы строим убежища, на которые можно положиться в любой ситуации.
             </p>
 

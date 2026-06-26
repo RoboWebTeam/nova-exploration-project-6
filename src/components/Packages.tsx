@@ -74,7 +74,7 @@ export function Packages() {
   }, [])
 
   return (
-    <section id="packages" ref={ref} className="py-24 bg-background">
+    <section id="packages" ref={ref} className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
         <div
           className="mb-16 transition-all duration-700"
@@ -85,19 +85,19 @@ export function Packages() {
           <p className="text-muted-foreground mt-3 max-w-xl">Выберите подходящий уровень — точную стоимость рассчитаем после выезда инженера</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {packages.map((pkg, i) => (
             <div
               key={pkg.id}
               className={`relative rounded-2xl flex flex-col transition-all duration-500 ${
                 pkg.highlight
-                  ? "bg-primary text-primary-foreground shadow-2xl scale-[1.02]"
+                  ? "bg-primary text-primary-foreground shadow-2xl sm:scale-[1.02]"
                   : "bg-secondary/50 border border-border"
               }`}
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible
-                  ? pkg.highlight ? "scale(1.01) translateZ(0)" : "none"
+                  ? pkg.highlight ? "translateZ(0)" : "none"
                   : "translateY(32px)",
                 transitionDelay: `${i * 100}ms`,
               }}

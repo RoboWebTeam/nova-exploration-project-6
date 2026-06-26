@@ -61,10 +61,10 @@ export function Certificates() {
   }, [])
 
   return (
-    <section id="certificates" ref={ref} className="py-24 bg-secondary/40">
+    <section id="certificates" ref={ref} className="py-16 md:py-24 bg-secondary/40">
       <div className="container mx-auto px-6 md:px-12">
         <div
-          className="mb-16 transition-all duration-700"
+          className="mb-10 md:mb-16 transition-all duration-700"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)" }}
         >
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4">Документы</p>
@@ -72,7 +72,7 @@ export function Certificates() {
           <p className="text-muted-foreground mt-3 max-w-xl">Работаем официально. Все документы можно проверить в государственных реестрах</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-16">
           {certs.map((cert, i) => (
             <div
               key={cert.title}
@@ -103,11 +103,11 @@ export function Certificates() {
           className="rounded-2xl bg-primary text-primary-foreground p-6 md:p-8 lg:p-10 transition-all duration-700 delay-500"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)" }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-6 md:mb-8">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-3xl md:text-4xl font-medium">{s.value}</p>
-                <p className="text-primary-foreground/60 text-sm mt-1">{s.label}</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-medium">{s.value}</p>
+                <p className="text-primary-foreground/60 text-xs sm:text-sm mt-1">{s.label}</p>
               </div>
             ))}
           </div>

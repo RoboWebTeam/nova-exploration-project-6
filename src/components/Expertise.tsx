@@ -58,7 +58,7 @@ export function Expertise() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mb-10 md:mb-20">
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4 md:mb-6">Наши услуги</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.15] tracking-tight mb-4 md:mb-6 text-balance lg:text-7xl xl:text-8xl">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-medium leading-[1.2] tracking-tight mb-4 md:mb-6 text-balance lg:text-6xl">
             <HighlightedText>Полный цикл</HighlightedText>
             <br />
             под ключ

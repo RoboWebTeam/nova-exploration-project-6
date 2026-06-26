@@ -60,10 +60,10 @@ export function Projects() {
             </a>
           </div>
 
-          <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-10 md:mb-16">
-            <span className="text-amber-500 text-lg shrink-0">🔒</span>
-            <p className="text-sm text-amber-800 leading-relaxed font-semibold">
-              Примечание: все объекты являются строго конфиденциальной информацией. Точные адреса, координаты и технические характеристики реализованных бункеров публично не предоставляются — мы не имеем на это права по условиям договоров с заказчиками.
+          <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 sm:px-5 py-3 sm:py-4 mb-8 md:mb-16">
+            <span className="text-amber-500 text-base sm:text-lg shrink-0 mt-0.5">🔒</span>
+            <p className="text-xs sm:text-sm text-amber-800 leading-relaxed font-semibold">
+              Все объекты — строго конфиденциальная информация. Точные адреса и характеристики не раскрываются по условиям договоров с заказчиками.
             </p>
           </div>
 
@@ -102,15 +102,15 @@ export function Projects() {
 
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
 
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-x-6 gap-y-1">
-                    <span className="text-sm"><span className="text-muted-foreground">Площадь:</span> <span className="font-medium">{project.area}</span></span>
-                    <span className="text-sm"><span className="text-muted-foreground">Срок:</span> <span className="font-medium">{project.duration}</span></span>
-                    <span className="text-sm"><span className="text-muted-foreground">Бюджет:</span> <span className="font-medium">{project.budget}</span></span>
+                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-3">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1">
+                    <span className="text-xs sm:text-sm"><span className="text-muted-foreground">Площадь:</span> <span className="font-medium">{project.area}</span></span>
+                    <span className="text-xs sm:text-sm"><span className="text-muted-foreground">Срок:</span> <span className="font-medium">{project.duration}</span></span>
+                    <span className="text-xs sm:text-sm"><span className="text-muted-foreground">Бюджет:</span> <span className="font-medium">{project.budget}</span></span>
                   </div>
                   <button
                     onClick={(e) => { e.stopPropagation(); setRequestProject(project) }}
-                    className="shrink-0 text-sm font-medium px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="self-start sm:self-auto shrink-0 text-sm font-medium px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     Оставить заявку
                   </button>

@@ -7,13 +7,13 @@ export function PromoBanner() {
   if (!visible) return null
 
   return (
-    <div className="bg-primary text-primary-foreground py-3 px-4 pr-10 relative">
-      <div className="container mx-auto flex flex-wrap items-center justify-center gap-1 sm:gap-3 text-xs sm:text-sm text-center">
-        <span className="font-semibold">🔒 Акция июля:</span>
-        <span className="text-center">Бесплатный выезд геолога при заказе бункера до 31 июля — экономия до 120 000 ₽</span>
+    <div className="bg-primary text-primary-foreground py-2.5 px-4 pr-10 relative">
+      <div className="container mx-auto flex flex-wrap items-center justify-center gap-1 sm:gap-3 text-xs sm:text-sm text-center leading-snug">
+        <span className="font-semibold whitespace-nowrap">🔒 Акция июля:</span>
+        <span className="text-center">Бесплатный выезд геолога до 31 июля — экономия <span className="whitespace-nowrap">120 000 ₽</span></span>
         <a
           href="#contact"
-          className="shrink-0 underline underline-offset-2 font-medium hover:opacity-80 transition-opacity"
+          className="shrink-0 underline underline-offset-2 font-medium hover:opacity-80 transition-opacity whitespace-nowrap"
         >
           Узнать подробнее
         </a>
