@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
+import { ymGoal, getUtm } from "@/lib/analytics"
 
 export function CallToAction() {
   const [name, setName] = useState("")
@@ -15,10 +16,11 @@ export function CallToAction() {
       const res = await fetch("https://functions.poehali.dev/8bf096d8-6d11-417b-963e-f0a10434100a", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, message }),
+        body: JSON.stringify({ name, phone, message, source: "contact_form", ...getUtm() }),
       })
       if (res.ok) {
         setStatus("success")
+        ymGoal("form_submit")
         setName("")
         setPhone("")
         setMessage("")
@@ -91,12 +93,14 @@ export function CallToAction() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
                     href="tel:+79331770086"
+                    onClick={() => ymGoal("phone_click")}
                     className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-4 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300 whitespace-nowrap"
                   >
                     8 (933) 177-00-86
                   </a>
                   <a
                     href="tel:+74955960800"
+                    onClick={() => ymGoal("phone_click")}
                     className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-4 py-4 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors duration-300 whitespace-nowrap"
                   >
                     8 (495) 596-08-00

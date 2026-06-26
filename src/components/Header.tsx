@@ -1,5 +1,6 @@
 import { useState, useEffect, MouseEvent } from "react"
 import { cn } from "../lib/utils"
+import { ymGoal } from "@/lib/analytics"
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -59,12 +60,14 @@ export function Header() {
           <div className="flex flex-col items-end gap-0.5">
             <a
               href="tel:+79331770086"
+              onClick={() => ymGoal("phone_click")}
               className="text-white text-sm font-bold tracking-wide hover:text-orange-400 transition-colors duration-300"
             >
               8 (933) 177-00-86
             </a>
             <a
               href="tel:+74955960800"
+              onClick={() => ymGoal("phone_click")}
               className="text-white text-sm font-bold tracking-wide hover:text-orange-400 transition-colors duration-300"
             >
               8 (495) 596-08-00
@@ -133,14 +136,14 @@ export function Header() {
             <a
               href="tel:+79331770086"
               className="text-white/70 text-base font-medium hover:text-orange-400 transition-colors"
-              onClick={closeMobileMenu}
+              onClick={() => { ymGoal("phone_click"); closeMobileMenu() }}
             >
               8 (933) 177-00-86
             </a>
             <a
               href="tel:+74955960800"
               className="text-white/70 text-base font-medium hover:text-orange-400 transition-colors"
-              onClick={closeMobileMenu}
+              onClick={() => { ymGoal("phone_click"); closeMobileMenu() }}
             >
               8 (495) 596-08-00
             </a>

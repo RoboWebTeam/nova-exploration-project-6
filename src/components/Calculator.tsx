@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ymGoal, getUtm } from "@/lib/analytics"
 
 const BACKEND_URL = "https://functions.poehali.dev/8bf096d8-6d11-417b-963e-f0a10434100a"
 
@@ -61,12 +62,14 @@ export function Calculator() {
       await fetch(BACKEND_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, message: msg }),
+        body: JSON.stringify({ ...form, message: msg, source: "calculator", ...getUtm() }),
       })
     } catch (_e) {
       setStatus("success")
+      ymGoal("calculator_submit")
       return
     }
+    ymGoal("calculator_submit")
     setStatus("success")
   }
 

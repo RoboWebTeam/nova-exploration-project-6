@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { Header } from "../components/Header"
 import { Hero } from "../components/Hero"
 import { Philosophy } from "../components/Philosophy"
@@ -17,8 +18,13 @@ import { Process } from "../components/Process"
 import { FloatChat } from "../components/FloatChat"
 import { Packages } from "../components/Packages"
 import { Certificates } from "../components/Certificates"
+import { saveUtm } from "../lib/analytics"
 
 export default function Index() {
+  useEffect(() => {
+    saveUtm()
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Header />

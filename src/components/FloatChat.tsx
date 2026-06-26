@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { ymGoal } from "@/lib/analytics"
 
 export function FloatChat() {
   const [visible, setVisible] = useState(false)
@@ -42,6 +43,7 @@ export function FloatChat() {
             </a>
             <a
               href="tel:+79331770086"
+              onClick={() => ymGoal("phone_click")}
               className="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary text-foreground text-sm font-medium hover:bg-secondary/80 transition-colors"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -51,6 +53,7 @@ export function FloatChat() {
             </a>
             <a
               href="tel:+74955960800"
+              onClick={() => ymGoal("phone_click")}
               className="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary text-foreground text-sm font-medium hover:bg-secondary/80 transition-colors"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
