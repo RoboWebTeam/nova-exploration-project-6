@@ -12,7 +12,7 @@ export function Hero() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center">
-          <p className="text-xs sm:text-sm md:text-xl tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase text-center text-secondary mb-4 sm:mb-6 md:mb-10 mt-20 sm:mt-24 md:mt-36">{"Строительство бункеров под ключ"}</p>
+          <p className="sm:text-sm md:text-xl tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase text-center text-secondary mb-4 sm:mb-6 md:mb-10 mt-20 sm:mt-24 md:mt-36 text-2xl">{"Строительство бункеров под ключ"}</p>
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-balance text-center text-white mb-0 tracking-tight leading-[1] sm:leading-[0.95] lg:text-8xl">
             {"Защита"}
